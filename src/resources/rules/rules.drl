@@ -1,0 +1,16 @@
+package rules
+
+import com.java.drools.entity.CreditScore;
+
+rule "Approve"
+	when
+		creditScoreObject: CreditScore(score >= 650)
+	then
+		creditScoreObject.setMessage("Approved..!!");
+	end
+rule "Reject"
+	when
+		creditScoreObject: CreditScore(score <= 500)
+	then
+		creditScoreObject.setMessage("Rejected..!!");
+	end
